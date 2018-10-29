@@ -21,8 +21,6 @@ def categories():
 
 @app.route('/category/<category_id>')
 def get_question_from_category(category_id=None):
-    
-
     return render_template('question.html')
 
 @app.route('/question')
@@ -40,4 +38,5 @@ def check_answer():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    # aapp.run(host='0.0.0.0', port=port)
+    app.run()
