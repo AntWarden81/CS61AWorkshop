@@ -17,7 +17,7 @@ def categories():
 
 @app.route('/category/<category_id>')
 def get_question_from_category(category_id=None):
-    question_list = requests.get('http://jservice.io/api/category?id=' + category_id).json()['clues']
+    question_list = requests.get('http://jservice.io/api/category', data={'id': category_id}).json()['clues']
     question_obj = random.choice(question_list)
     question, answer = question_obj['question'], question_obj['answer']
     return render_template('question.html', **locals())
