@@ -34,22 +34,25 @@ def create_app(test_config=None):
 
     @app.route('/categories')
     def categories():
-        print("IN CATEGORIES")
-        categories = requests.get('http://jservice.io/api/categories?count=10')
+        categories = requests.get('http://jservice.io/api/categories/', data={'count': 10})
         categories_json = categories.json()
         ids = [category['id'] for category in categories_json]
         titles = [category['title'] for category in categories_json]
-        print(ids, titles)
+        print(ids, titles, categories_json)
         return render_template('categories.html')
 
     @app.route('/category/<category_id>')
     def get_question_from_category(category_id=None):
-        print('question from category')
+        
+
         return render_template('question.html')
 
     @app.route('/question')
     def get_random_question():
-        print('question lol')
+        question_obj = requests.get('http://jservice.io/api/random').json()[0]
+        question, answer = question_obj['question'], question_obj['answer']
+        print(question_obj)
+        print(question, answer)
         return render_template('question.html')
 
     @app.route('/answer')
