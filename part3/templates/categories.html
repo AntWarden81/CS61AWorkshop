@@ -1,6 +1,12 @@
-<h1>/categories</h1>
-<ul>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<h1 class="extra-content">/categories</h1>
+<h1 class="header">Categories</h1>
+<div class="category-container">
 {% for category in categories_json %}
-  <li><a href="/category/{{category.id}}">{{category.title}}</a></li>
+  <a href="/category/{{category.id}}">
+  	<div class="category-box">
+  		<p class="category-text">{{category.title}}</p>
+  	</div>
+  </a>
 {% endfor %}
-</ul>
+</div>
