@@ -32,6 +32,7 @@ def get_random_question():
 def check_answer():
     input_answer = request.form['input_answer']
     real_answer = request.form['real_answer']
+    correct_answer_string = 'Correct' if input_answer.lower() in real_answer.lower() else 'Incorrect'
     return render_template('answer.html', **locals())
 
 if __name__ == '__main__':

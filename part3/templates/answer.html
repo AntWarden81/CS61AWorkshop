@@ -2,11 +2,7 @@
 <p>Input Answer: {{input_answer}}</p>
 <p>Real Answer: {{real_answer}}</p>
 
-{% if input_answer == real_answer %}
-<h1>Correct!</h1>
-{% else %}
-<h1>Incorrect!</h1>
-{% endif %}
+<h1>{{correct_answer_string}}</h1>
 
 <a href="/categories">Browse</a>
 <a href="/question">Random</a>
