@@ -29,28 +29,6 @@ def create_app(test_config=None):
         g.name = name
         return render_template('index.html')
 
-    @app.route('/kitty')
-    @app.route('/kitty/<name>')
-    @app.route('/<name>/kitty')
-    def kitty(name=None):
-        g.name = name
-        return render_template('kitty.html')
-
-    @app.route('/puppy')
-    @app.route('/puppy/<name>')
-    @app.route('/<name>/puppy')
-    def puppy(name=None):
-        g.name = name
-        return render_template('puppy.html')
-
-    @app.route('/get/character')
-    # https://swapi.co/api/people/?search=r2
-    def getChar():
-        return render_template('query.html')
-
-    @app.route('/get/character/<name>')
-    def showChar
-        return render_template('display.html')
 
     return app
 
