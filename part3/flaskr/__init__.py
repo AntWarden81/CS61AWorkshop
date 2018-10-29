@@ -2,6 +2,8 @@ import os
 
 from flask import Flask, render_template, g
 
+import requests
+
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
@@ -25,10 +27,20 @@ def create_app(test_config=None):
 
     # a simple page that says hello
     @app.route('/')
-    def hello(name=None):
+    def index(name=None):
+        print("in index")
         g.name = name
         return render_template('index.html')
 
+    @app.route('/categories')
+    def categories():
+        print("IN CATEGORIES")
+        r = requests.get('http://jservice.io/api/categories?count=10')
+        q = r.json()
+        print(q)
+
+
+        return render_template('index.html')
 
     return app
 
