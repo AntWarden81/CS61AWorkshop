@@ -1,0 +1,6 @@
+<h1>/categories</h1>
+<ul>
+{% for category in categories_json %}
+  <li><a href="/category/{{category.id}}">{{category.title}}</a></li>
+{% endfor %}
+</ul>
