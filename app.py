@@ -1,12 +1,12 @@
-import os
 from flask import Flask, render_template, g, request
-import requests
 import random
+import requests
+import os
 
 app = Flask(__name__)
 
 @app.route('/')
-def index(name=None):
+def index():
     return render_template('index.html')
 
 @app.route('/categories')
