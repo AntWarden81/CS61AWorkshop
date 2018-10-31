@@ -1,4 +1,8 @@
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% extends "base.html" %}
+
+
+{% block content %}
 <h1 class="title">Welcome to Jeopardy!</h1>
 <a href="/categories" class="button">Browse</a>
 <a href="/question" class="button">Random</a>
+{% endblock %}

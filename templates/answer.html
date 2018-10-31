@@ -1,9 +1,10 @@
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% extends "base.html" %}
 
-
+{% block content %}
 <h1 class="title">{{correct_answer_string}}</h1>
 <p class="answer-info">Your Answer: {{input_answer}}</p>
 <p class="answer-info">Correct Answer: {{real_answer}}</p>
 
 <a class="button" href="/categories">Browse</a>
 <a class="button" href="/question">Random</a>
+{% endblock %}
