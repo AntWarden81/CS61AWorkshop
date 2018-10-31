@@ -3,7 +3,7 @@ from flask import Flask, render_template, g, request
 import requests
 import random
 
-app = Flask(__name__, instance_relative_config=True)
+app = Flask(__name__)
 
 @app.route('/')
 def index(name=None):
@@ -28,11 +28,11 @@ def get_random_question():
     question, answer = question_obj['question'], question_obj['answer']
     return render_template('question.html', **locals())
 
-@app.route('/answer', methods=['POST'])
+@app.route('/answer', methods=['GET'])
 def check_answer():
-    input_answer = request.form['input_answer']
-    real_answer = request.form['real_answer']
-    correct_answer_string = 'Correct' if input_answer.lower() in real_answer.lower() else 'Incorrect'
+    input_answer = request.args['input_answer']
+    real_answer = request.args['real_answer']
+    correct_answer_string = 'Correct' if input_answer.lower() == real_answer.lower() else 'Incorrect'
     return render_template('answer.html', **locals())
 
 if __name__ == '__main__':
