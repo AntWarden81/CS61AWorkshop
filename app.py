@@ -1,12 +1,12 @@
-import os
 from flask import Flask, render_template, g, request
-import requests
 import random
+import requests
+import os
 
 app = Flask(__name__)
 
 @app.route('/')
-def index(name=None):
+def index():
     return render_template('index.html')
 
 @app.route('/categories')
@@ -28,7 +28,7 @@ def get_random_question():
     question, answer = question_obj['question'], question_obj['answer']
     return render_template('question.html', question=question, answer=answer)
 
-@app.route('/answer', methods=['GET'])
+@app.route('/answer')
 def check_answer():
     input_answer = request.args['input_answer']
     real_answer = request.args['real_answer']
