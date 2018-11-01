@@ -36,6 +36,5 @@ def check_answer():
     return render_template('answer.html', input_answer=input_answer, real_answer=real_answer, correct_answer_string=correct_answer_string)
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    # app.run(host='0.0.0.0', port=port, debug=True)
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5001))
+    app.run(debug=True, port=port)
