@@ -15,16 +15,14 @@ def categories():
     categories_json = categories.json()
     return render_template('categories.html', categories_json=categories_json)
 
-@app.route('/category/<category_id>')
-def get_question_from_category(category_id=None):
-    question_list = requests.get('http://jservice.io/api/category', data={'id': category_id}).json()['clues']
-    question_obj = random.choice(question_list)
-    question, answer = question_obj['question'], question_obj['answer']
-    return render_template('question.html', question=question, answer=answer)
-
 @app.route('/question')
-def get_random_question():
-    question_obj = requests.get('http://jservice.io/api/random').json()[0]
+@app.route('/question/<category_id>')
+def get_random_question(category_id=None):
+    if category_id:
+        question_list = requests.get('http://jservice.io/api/category', data={'id': category_id}).json()['clues']
+        question_obj = random.choice(question_list)
+    else:
+        question_obj = requests.get('http://jservice.io/api/random').json()[0]
     question, answer = question_obj['question'], question_obj['answer']
     return render_template('question.html', question=question, answer=answer)
 
