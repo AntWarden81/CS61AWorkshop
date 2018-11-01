@@ -1,10 +1,9 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<h1 class="extra-content">/answer</h1>
 
 
 <h1 class="title">{{correct_answer_string}}</h1>
-<p class="answer-info">Input Answer: {{input_answer}}</p>
-<p class="answer-info">Real Answer: {{real_answer}}</p>
+<p class="answer-info">Your Answer: {{input_answer}}</p>
+<p class="answer-info">Correct Answer: {{real_answer}}</p>
 
 <a class="button" href="/categories">Browse</a>
 <a class="button" href="/question">Random</a>

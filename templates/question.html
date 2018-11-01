@@ -1,8 +1,6 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<h1 class="extra-content">/question</h1>
 <p class="sub-header">Question: {{question}}</p>
-<p class="extra-content">Answer: {{answer}}</p>
-<form action="/answer" method="POST">
+<form action="/answer">
   <input class="button input" placeholder="Response" type="text" name="input_answer">
   <input type="hidden" name="real_answer" value="{{answer}}">
   <input class="button" type="submit" value="Submit">
