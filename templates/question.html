@@ -1,10 +1,7 @@
-{% extends "base.html" %}
-
-{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <p class="sub-header">Question: {{question}}</p>
 <form action="/answer" method="GET">
   <input class="button input" placeholder="Response" type="text" name="input_answer">
   <input type="hidden" name="real_answer" value="{{answer}}">
   <input class="button" type="submit" value="Submit">
 </form>
-{% endblock %}

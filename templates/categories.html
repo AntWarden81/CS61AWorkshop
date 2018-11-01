@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <h1 class="header">Categories</h1>
 <div class="category-container">
 {% for category in categories_json %}
@@ -11,4 +9,3 @@
   </a>
 {% endfor %}
 </div>
-{% endblock %}
