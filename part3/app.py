@@ -11,7 +11,7 @@ def index(name=None):
 
 @app.route('/categories')
 def categories():
-    categories = requests.get('http://jservice.io/api/categories/', data={'count': 10})
+    categories = requests.get('http://jservice.io/api/categories/', data={'count': 6})
     categories_json = categories.json()
     return render_template('categories.html', **locals())
 
